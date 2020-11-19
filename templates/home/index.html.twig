@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home page{% endblock %}
+
+{% block stylesheets %}
+<style>
+    .flash-notice {
+        margin: 8px;
+        padding-left: 8px;
+        width: 150px;
+        background-color: rgb(113, 241, 113)
+    }
+
+    .hide {
+        opacity: 0;
+        transition: opacity 1000ms;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<a href="/test/mail?name=Peter Novak">Send a test mail</a>
+
+{% for message in app.flashes('notice') %}
+<div id="flash-notice" class="flash-notice">
+    {{ message }}
+</div>
+{% endfor %}
+
+{% block javascripts %}
+<script src="main.js"></script>
+{% endblock %}
+
+{% endblock %}
